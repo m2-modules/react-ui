@@ -1,0 +1,20 @@
+{
+  "name": "@m2-modules/react-ui-button",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "author": {
+    "name": "Jay Lee",
+    "email": "jaylee.possible@gmail.com"
+  },
+  "packageManager": "yarn@3.5.0",
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "eslint": "^8.36.0",
+    "eslint-config-react-ui": "*",
+    "tsconfig": "*",
+    "typescript": "^5.0.2"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
+  }
+}
