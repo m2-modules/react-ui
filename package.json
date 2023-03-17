@@ -8,10 +8,10 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "lint": "eslint",
     "lint:foreach": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "format:foreach": "turbo run format",
+    "format": "prettier --write",
+    "lint": "eslint",
+    "format:foreach": "prettier --write \"**/*.{ts,tsx,md}\"",
     "postinstall": "husky install"
   },
   "devDependencies": {
