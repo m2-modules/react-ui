@@ -8,15 +8,16 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "lint": "eslint",
     "lint:foreach": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "format:foreach": "turbo run format",
+    "format": "prettier --write",
+    "lint": "eslint",
+    "format:foreach": "prettier --write \"**/*.{ts,tsx,md}\"",
     "postinstall": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "eslint": "^8.36.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "prettier": "latest",

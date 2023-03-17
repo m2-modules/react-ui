@@ -1,18 +1,26 @@
 {
   "name": "@m2-modules/react-ui-button",
   "version": "0.0.0",
-  "main": "dist/index.js",
+  "main": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
   "author": {
     "name": "Jay Lee",
     "email": "jaylee.possible@gmail.com"
   },
   "packageManager": "yarn@3.5.0",
+  "scripts": {
+    "build": "vite build",
+    "lint": "eslint . --ext .ts,.tsx"
+  },
   "devDependencies": {
     "@types/react": "^18.0.28",
+    "@vitejs/plugin-react": "^3.1.0",
     "eslint": "^8.36.0",
     "eslint-config-react-ui": "*",
     "tsconfig": "*",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.2",
+    "vite": "^4.2.0",
+    "vite-plugin-dts": "^2.1.0"
   },
   "peerDependencies": {
     "react": "^18.0.0"
