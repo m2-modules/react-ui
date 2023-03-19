@@ -9,7 +9,7 @@ export default defineConfig({
     lib: {
       entry: "src/index.ts",
       name: packageJson.name,
-      formats: ["umd"],
+      formats: ["cjs", "es"],
       fileName: "index",
     },
     rollupOptions: {
