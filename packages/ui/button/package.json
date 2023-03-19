@@ -9,10 +9,13 @@
     "email": "jaylee.possible@gmail.com"
   },
   "license": "MIT",
-  "packageManager": "yarn@3.5.0",
+  "repository": "https://github.com/m2-modules/react-ui",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "vite build",
-    "lint": "eslint . --ext .ts,.tsx",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "test": "jest",
     "test:watch": "jest --watch"
   },
