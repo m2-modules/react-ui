@@ -1,12 +1,14 @@
 module.exports = {
-  "stories": [
+  stories: [
     "../packages/**/*.stories.mdx",
-    "../packages/**/*.stories.@(ts|tsx)"
+    "../packages/**/*.stories.@(ts|tsx)",
   ],
-  "addons": [
+  addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    { name: "@storybook/addon-styling", options: { postCss: true } },
   ],
-  "framework": "@storybook/react"
-}
+  framework: "@storybook/react",
+  core: { builder: "webpack5" },
+};
