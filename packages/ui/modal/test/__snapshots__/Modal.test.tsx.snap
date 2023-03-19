@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`show Modal on document 1`] = `
+<span>
+  Your Input component is ready to Go!
+</span>
+`;
