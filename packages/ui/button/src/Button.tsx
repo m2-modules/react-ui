@@ -5,6 +5,13 @@ export interface ButtonProps {
 }
 
 export default function Button({ text = "Button" }: ButtonProps) {
-  console.log("test");
-  return <button>{text}</button>;
+  return (
+    <button
+      onClick={() => {
+        console.log("Click");
+      }}
+    >
+      {text}
+    </button>
+  );
 }
