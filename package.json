@@ -16,7 +16,8 @@
     "postinstall": "husky install",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "publish-packages": "turbo run build lint test && changeset version && changeset publish"
+    "publish-packages": "turbo run build lint test && changeset version && changeset publish",
+    "generate:ui": "plop ui --plopfile generator/plopfile.mjs"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
@@ -34,7 +35,8 @@
     "eslint": "^8.36.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
-    "prettier": "latest",
+    "plop": "^3.1.2",
+    "prettier": "2.8.4",
     "turbo": "latest"
   },
   "engines": {
