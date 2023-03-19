@@ -1,11 +1,12 @@
 {
   "name": "tsconfig",
   "version": "0.0.0",
+  "private": true,
   "author": {
     "name": "Jay Lee",
     "email": "jaylee.possible@gmail.com"
   },
-  "private": true,
+  "license": "MIT",
   "files": [
     "base.json",
     "react-ui.json"
