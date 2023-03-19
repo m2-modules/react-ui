@@ -8,7 +8,7 @@ export default function Button({ text = "Button" }: ButtonProps) {
   return (
     <button
       onClick={() => {
-        console.log("Click");
+        console.log("Click!");
       }}
     >
       {text}

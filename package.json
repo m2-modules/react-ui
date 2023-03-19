@@ -8,8 +8,10 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "lint": "turbo run lint",
+    "lint:foreach": "turbo run lint",
+    "lint": "eslint",
     "test": "turbo run test",
+    "test:watch": "turbo run test:watch",
     "format": "prettier --write",
     "postinstall": "husky install",
     "storybook": "start-storybook -p 6006",

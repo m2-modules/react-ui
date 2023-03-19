@@ -8,11 +8,13 @@
     "name": "Jay Lee",
     "email": "jaylee.possible@gmail.com"
   },
+  "license": "MIT",
   "packageManager": "yarn@3.5.0",
   "scripts": {
     "build": "vite build",
     "lint": "eslint . --ext .ts,.tsx",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
