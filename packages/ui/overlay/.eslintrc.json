@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "extends": ["react-ui"],
+  "ignorePatterns": ["babel.config.js", "dist"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
