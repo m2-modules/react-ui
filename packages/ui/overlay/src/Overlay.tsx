@@ -53,7 +53,7 @@ export default function Overlay({
   return createPortal(
     <div
       ref={overlayRef}
-      className="fixed left-0 right-0 top-0 bottom-0 transition-opacity duration-500 opacity-0"
+      className="fixed left-0 right-0 top-0 bottom-0 transition-opacity duration-500 opacity-0 z-[2]"
       style={{ background }}
       onClick={onClose}
     />,
