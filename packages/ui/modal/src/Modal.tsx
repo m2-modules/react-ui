@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useRef } from "react";
+import { CSSProperties, useEffect, useRef } from "react";
 
 export interface ModalProps {
   active?: boolean;
