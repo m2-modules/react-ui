@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 const ACTIVE_CLASS = "opacity-1";
@@ -24,10 +24,12 @@ export default function Overlay({
   onClose,
 }: OverlayProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
+  const [_active, _setActive] = useState(active);
 
   const activateOverlay = useCallback(() => {
     if (!overlayRef.current) return;
     const overlay = overlayRef.current;
+    _setActive(true);
 
     setTimeout(() => {
       overlay.classList.remove(INACTIVE_CLASS);
@@ -50,11 +52,16 @@ export default function Overlay({
     }
   }, [active, activateOverlay, inactivateOverlay]);
 
+  if (!active && !_active) return <></>;
+
   return createPortal(
     <div
       ref={overlayRef}
       className="fixed left-0 right-0 top-0 bottom-0 transition-opacity duration-500 opacity-0 z-[2]"
       style={{ background }}
+      onTransitionEnd={() => {
+        if (!active && _active) _setActive(false);
+      }}
       onClick={onClose}
     />,
     getOverlayPortal(),
