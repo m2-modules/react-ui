@@ -61,8 +61,8 @@ Scale.args = {
   activateTransitionClasses: ["scale-1"],
   inactivateTransitionClasses: ["scale-0"],
 };
-export const TransformY = Template.bind({});
-TransformY.args = {
+export const TranslateY = Template.bind({});
+TranslateY.args = {
   activateTransitionClasses: ["opacity-1", "translate-y-0"],
   inactivateTransitionClasses: ["opacity-0", "translate-y-10"],
 };
