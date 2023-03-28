@@ -8,8 +8,8 @@ const componentMeta: ComponentMeta<typeof Overlay> = {
   argTypes: {
     background: { control: "color" },
     active: { control: "none" },
-    activateTransitionClass: { control: "none" },
-    inactivateTransitionClass: { control: "none" },
+    activateTransitionClasses: { control: "none" },
+    inactivateTransitionClasses: { control: "none" },
     transitionDuration: { control: "none" },
   },
 };
@@ -44,6 +44,6 @@ const Template: ComponentStory<typeof Overlay> = (args: OverlayProps) => {
 export const Opacity = Template.bind({});
 export const Scale = Template.bind({});
 Scale.args = {
-  activateTransitionClass: "scale-1",
-  inactivateTransitionClass: "scale-0",
+  activateTransitionClasses: ["opacity-1", "scale-1"],
+  inactivateTransitionClasses: ["opacity-0", "scale-0"],
 };
