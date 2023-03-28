@@ -36,4 +36,9 @@ const Template: ComponentStory<typeof Overlay> = (args: OverlayProps) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Opacity = Template.bind({});
+export const Scale = Template.bind({});
+Scale.args = {
+  activateTransitionClass: "scale-1",
+  inactivateTransitionClass: "scale-0",
+};
