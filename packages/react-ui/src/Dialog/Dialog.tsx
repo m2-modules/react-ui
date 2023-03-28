@@ -1,15 +1,7 @@
 import { createPortal } from "react-dom";
 import Overlay, { type OverlayProps } from "../Overlay";
 import { useCallback, useEffect, useRef, useState } from "react";
-
-const getDialogPortal = () => {
-  let dialogPortal = document.querySelector<HTMLDivElement>("#dialog-portal");
-  if (dialogPortal) return dialogPortal;
-  dialogPortal = document.createElement("div");
-  dialogPortal.id = "dialog-portal";
-  document.body.append(dialogPortal);
-  return dialogPortal;
-};
+import usePortal from "../hooks/usePortal";
 
 export interface DialogProps {
   active?: boolean;
@@ -33,6 +25,7 @@ export default function Dialog({
   children,
 }: DialogProps) {
   const dialogContainerRef = useRef<HTMLDivElement>(null);
+  const dialogPortal = usePortal("dialog-portal");
   const [_active, _setActive] = useState(active);
 
   const activateDialog = useCallback(() => {
@@ -62,7 +55,7 @@ export default function Dialog({
     }
   }, [activateDialog, active, inactivateDialog]);
 
-  if (!active && !_active) return <></>;
+  if ((!active && !_active) || !dialogPortal) return <></>;
 
   return createPortal(
     <>
@@ -83,6 +76,6 @@ export default function Dialog({
         </div>
       </div>
     </>,
-    getDialogPortal(),
+    dialogPortal,
   );
 }

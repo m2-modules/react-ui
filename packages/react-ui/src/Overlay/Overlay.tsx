@@ -1,14 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import usePortal from "../hooks/usePortal";
 
-const getOverlayPortal = () => {
-  let overlayPortal = document.querySelector<HTMLDivElement>("#overlay-portal");
-  if (overlayPortal) return overlayPortal;
-  overlayPortal = document.createElement("div");
-  overlayPortal.id = "overlay-portal";
-  document.body.append(overlayPortal);
-  return overlayPortal;
-};
 export interface OverlayProps {
   active?: boolean;
   activateTransitionClasses?: string[];
@@ -27,6 +20,7 @@ export default function Overlay({
   onClose,
 }: OverlayProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
+  const overlayPortal = usePortal("overlay-portal");
   const [_active, _setActive] = useState(active);
 
   const activateOverlay = useCallback(() => {
@@ -55,7 +49,7 @@ export default function Overlay({
     }
   }, [active, activateOverlay, inactivateOverlay]);
 
-  if (!active && !_active) return <></>;
+  if ((!active && !_active) || !overlayPortal) return <></>;
 
   return createPortal(
     <div
@@ -69,6 +63,6 @@ export default function Overlay({
       }}
       onClick={onClose}
     />,
-    getOverlayPortal(),
+    overlayPortal,
   );
 }
