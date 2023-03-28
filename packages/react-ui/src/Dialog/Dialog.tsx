@@ -2,9 +2,6 @@ import { createPortal } from "react-dom";
 import Overlay from "../Overlay";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const ACTIVATE_CLASS_NAME = "opacity-1";
-const INACTIVATE_CLASS_NAME = "opacity-0";
-
 const getDialogPortal = () => {
   let dialogPortal = document.querySelector<HTMLDivElement>("#dialog-portal");
   if (dialogPortal) return dialogPortal;
@@ -17,6 +14,9 @@ const getDialogPortal = () => {
 export interface DialogProps {
   active?: boolean;
   enableOverlay?: boolean;
+  activateTransitionClasses?: string[];
+  inactivateTransitionClasses?: string[];
+  transitionDuration?: string;
   onClose: () => void;
   children: React.ReactNode;
 }
@@ -24,6 +24,9 @@ export interface DialogProps {
 export default function Dialog({
   active = false,
   enableOverlay = true,
+  activateTransitionClasses = ["opacity-1"],
+  inactivateTransitionClasses = ["opacity-0"],
+  transitionDuration = "duration-500",
   onClose,
   children,
 }: DialogProps) {
@@ -36,18 +39,18 @@ export default function Dialog({
     _setActive(true);
 
     setTimeout(() => {
-      dialogContainer.classList.remove(INACTIVATE_CLASS_NAME);
-      dialogContainer.classList.add(ACTIVATE_CLASS_NAME);
+      dialogContainer.classList.remove(...inactivateTransitionClasses);
+      dialogContainer.classList.add(...activateTransitionClasses);
     }, 100);
-  }, []);
+  }, [activateTransitionClasses, inactivateTransitionClasses]);
 
   const inactivateDialog = useCallback(() => {
     if (!dialogContainerRef.current) return;
     const dialogContainer = dialogContainerRef.current;
 
-    dialogContainer.classList.remove(ACTIVATE_CLASS_NAME);
-    dialogContainer.classList.add(INACTIVATE_CLASS_NAME);
-  }, []);
+    dialogContainer.classList.remove(...activateTransitionClasses);
+    dialogContainer.classList.add(...inactivateTransitionClasses);
+  }, [activateTransitionClasses, inactivateTransitionClasses]);
 
   useEffect(() => {
     if (active) {
@@ -62,14 +65,18 @@ export default function Dialog({
   return createPortal(
     <>
       {enableOverlay && <Overlay active={active} onClose={onClose} />}
-      <div
-        ref={dialogContainerRef}
-        className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-500 opacity-0 z-[3]"
-        onTransitionEnd={() => {
-          if (!active && _active) _setActive(false);
-        }}
-      >
-        {children}
+      <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[3]">
+        <div
+          ref={dialogContainerRef}
+          className={`transition-all ${transitionDuration} ${inactivateTransitionClasses.join(
+            " ",
+          )}`}
+          onTransitionEnd={() => {
+            if (!active && _active) _setActive(false);
+          }}
+        >
+          {children}
+        </div>
       </div>
     </>,
     getDialogPortal(),
