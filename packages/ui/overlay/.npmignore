@@ -1,9 +1,0 @@
-node_modules
-src
-stories
-test
-.eslintrc.*
-babel.config.*
-tsconfig.*
-vite.config.*
-yarn-error.log

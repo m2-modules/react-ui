@@ -1,5 +1,5 @@
 {
-  "name": "tsconfig",
+  "name": "@m2-modules/tsconfig",
   "version": "0.0.0",
   "private": true,
   "author": {

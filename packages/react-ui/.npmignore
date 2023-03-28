@@ -6,4 +6,3 @@ test
 babel.config.*
 tsconfig.*
 vite.config.*
-yarn-error.log
