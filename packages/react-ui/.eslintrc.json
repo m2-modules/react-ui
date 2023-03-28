@@ -1,7 +1,7 @@
 {
   "root": true,
   "extends": ["react-ui"],
-  "ignorePatterns": ["vite.config.js", "babel.config.js", "dist"],
+  "ignorePatterns": ["*.config.js", "dist"],
   "settings": {
     "react": {
       "version": "detect"

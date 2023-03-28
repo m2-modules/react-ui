@@ -1,4 +1,4 @@
 {
-  "*.{ts,tsx}": ["yarn format", "yarn lint"],
-  "*.{json,md}": ["yarn format"]
+  "*.{ts,tsx}": ["pnpm lint-staged:format", "pnpm lint-staged:lint"],
+  "*.{json,md}": ["pnpm lint-staged:format"]
 }

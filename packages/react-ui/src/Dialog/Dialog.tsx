@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom";
-import Overlay from "@m2-modules/overlay";
+import Overlay from "../Overlay";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const ACTIVATE_CLASS_NAME = "opacity-1";
