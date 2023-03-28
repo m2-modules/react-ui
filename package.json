@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "packages/libs/*",
-    "packages/ui/*"
+    "packages/**/*"
   ],
+  "packageManager": "pnpm@7.30.3",
   "scripts": {
     "build": "turbo run build",
     "lint:foreach": "turbo run lint",
@@ -22,11 +22,9 @@
     "watch:storybook": "start-storybook -p 6006",
     "watch:test": "turbo run test:watch"
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
   "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "@babel/core": "^7.21.3",
     "@changesets/cli": "^2.26.0",
     "@commitlint/cli": "^17.4.4",
