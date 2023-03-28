@@ -1,15 +1,20 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { useState } from "react";
-
 import Overlay, { OverlayProps } from "../Overlay";
 
-export default {
+const componentMeta: ComponentMeta<typeof Overlay> = {
   title: "Overlay",
   component: Overlay,
   argTypes: {
-    backgroundColor: { control: "color" },
+    background: { control: "color" },
+    active: { control: "none" },
+    activateTransitionClass: { control: "none" },
+    inactivateTransitionClass: { control: "none" },
+    transitionDuration: { control: "none" },
   },
-} as ComponentMeta<typeof Overlay>;
+};
+
+export default componentMeta;
 
 const Template: ComponentStory<typeof Overlay> = (args: OverlayProps) => {
   const [active, setActive] = useState(false);
