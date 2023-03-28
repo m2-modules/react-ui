@@ -553,8 +553,20 @@ video {
   z-index: 2;
 }
 
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
 .inline-flex {
   display: inline-flex;
+}
+
+.table {
+  display: table;
 }
 
 .grid {
@@ -660,6 +672,14 @@ video {
 
 .p-5 {
   padding: 1.25rem;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .opacity-0 {
