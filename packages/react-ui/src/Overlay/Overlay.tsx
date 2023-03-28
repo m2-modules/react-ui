@@ -1,9 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-const ACTIVE_CLASS = "opacity-1";
-const INACTIVE_CLASS = "opacity-0";
-
 const getOverlayPortal = () => {
   let overlayPortal = document.querySelector<HTMLDivElement>("#overlay-portal");
   if (overlayPortal) return overlayPortal;
@@ -14,12 +11,18 @@ const getOverlayPortal = () => {
 };
 export interface OverlayProps {
   active?: boolean;
+  activateTransitionClass?: string;
+  inactivateTransitionClass?: string;
+  transitionDuration?: string;
   background?: string;
   onClose: () => void;
 }
 
 export default function Overlay({
   active = false,
+  activateTransitionClass = "opacity-1",
+  inactivateTransitionClass = "opacity-0",
+  transitionDuration = "duration-500",
   background = "rgba(0,0,0,0.3)",
   onClose,
 }: OverlayProps) {
@@ -32,17 +35,17 @@ export default function Overlay({
     _setActive(true);
 
     setTimeout(() => {
-      overlay.classList.remove(INACTIVE_CLASS);
-      overlay.classList.add(ACTIVE_CLASS);
+      overlay.classList.remove(inactivateTransitionClass);
+      overlay.classList.add(activateTransitionClass);
     }, 100);
-  }, []);
+  }, [activateTransitionClass, inactivateTransitionClass]);
 
   const inactivateOverlay = useCallback(() => {
     if (!overlayRef.current) return;
     const overlay = overlayRef.current;
-    overlay.classList.remove(ACTIVE_CLASS);
-    overlay.classList.add(INACTIVE_CLASS);
-  }, []);
+    overlay.classList.remove(activateTransitionClass);
+    overlay.classList.add(inactivateTransitionClass);
+  }, [activateTransitionClass, inactivateTransitionClass]);
 
   useEffect(() => {
     if (active) {
@@ -57,7 +60,7 @@ export default function Overlay({
   return createPortal(
     <div
       ref={overlayRef}
-      className="fixed left-0 right-0 top-0 bottom-0 transition-opacity duration-500 opacity-0 z-[2]"
+      className={`fixed left-0 right-0 top-0 bottom-0 z-[2] transition-all ${transitionDuration} ${inactivateTransitionClass}`}
       style={{ background }}
       onTransitionEnd={() => {
         if (!active && _active) _setActive(false);
