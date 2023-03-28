@@ -1,9 +1,8 @@
-import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
-import react from "@vitejs/plugin-react";
-import packageJson from "./package.json";
+const react = require("@vitejs/plugin-react");
+const dts = require("vite-plugin-dts");
+const packageJson = require("./package.json");
 
-export default defineConfig({
+module.exports = {
   plugins: [react(), dts()],
   build: {
     lib: {
@@ -21,4 +20,4 @@ export default defineConfig({
       },
     },
   },
-});
+};
