@@ -1,4 +1,4 @@
-import '../packages/react-ui/dist/assets/output.css'
+import "../packages/react-ui/dist/assets/output.css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -8,4 +8,5 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  layout: "fullscreen",
 };

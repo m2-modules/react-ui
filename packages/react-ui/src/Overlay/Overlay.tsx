@@ -8,7 +8,8 @@ export interface OverlayProps {
   inactivateTransitionClasses?: string[];
   transitionDuration?: string;
   background?: string;
-  onClose: () => void;
+  portalIdentifier?: string;
+  handleClick?: () => void;
 }
 
 export default function Overlay({
@@ -17,10 +18,11 @@ export default function Overlay({
   inactivateTransitionClasses = ["opacity-0"],
   transitionDuration = "duration-500",
   background = "rgba(0,0,0,0.3)",
-  onClose,
+  portalIdentifier = "overlay-portal",
+  handleClick,
 }: OverlayProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
-  const overlayPortal = usePortal("overlay-portal");
+  const overlayPortal = usePortal(portalIdentifier);
   const [_active, _setActive] = useState(active);
 
   const activateOverlay = useCallback(() => {
@@ -61,7 +63,7 @@ export default function Overlay({
       onTransitionEnd={() => {
         if (!active && _active) _setActive(false);
       }}
-      onClick={onClose}
+      onClick={handleClick}
     />,
     overlayPortal,
   );

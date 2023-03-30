@@ -33,7 +33,7 @@ const Template: ComponentStory<typeof Overlay> = (args: OverlayProps) => {
       <Overlay
         {...args}
         active={active}
-        onClose={() => {
+        handleClick={() => {
           setActive(false);
         }}
       />
