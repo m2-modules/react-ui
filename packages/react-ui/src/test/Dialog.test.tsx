@@ -4,7 +4,7 @@ import Dialog from "../Dialog";
 it("show Dialog on document", () => {
   const component = renderer.create(
     <Dialog
-      onClose={() => {
+      handleClick={() => {
         console.log("on close");
       }}
     >

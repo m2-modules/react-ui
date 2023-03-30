@@ -4,7 +4,7 @@ import Overlay from "../Overlay";
 it("show Overlay on document", () => {
   const component = renderer.create(
     <Overlay
-      onClose={() => {
+      handleClick={() => {
         console.log("On close");
       }}
     />,

@@ -1,17 +1,20 @@
 import { createPortal } from "react-dom";
 import Overlay, { type OverlayProps } from "../Overlay";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import usePortal from "../hooks/usePortal";
 
+export type Position = { left: number; top: number };
 export interface DialogProps {
   active?: boolean;
   enableOverlay?: boolean;
   activateTransitionClasses?: string[];
   inactivateTransitionClasses?: string[];
   transitionDuration?: string;
-  onClose: () => void;
   overlayProps?: Omit<OverlayProps, "active" | "onClose">;
+  portalIdentifier?: string;
   children: React.ReactNode;
+  position?: Position;
+  handleClick?: () => void;
 }
 
 export default function Dialog({
@@ -20,17 +23,19 @@ export default function Dialog({
   activateTransitionClasses = ["opacity-1"],
   inactivateTransitionClasses = ["opacity-0"],
   transitionDuration = "duration-500",
-  onClose,
   overlayProps,
+  portalIdentifier = "dialog-portal",
+  position,
   children,
+  handleClick,
 }: DialogProps) {
-  const dialogContainerRef = useRef<HTMLDivElement>(null);
-  const dialogPortal = usePortal("dialog-portal");
+  const containerRef = useRef<HTMLDivElement>(null);
+  const dialogPortal = usePortal(portalIdentifier);
   const [_active, _setActive] = useState(active);
 
   const activateDialog = useCallback(() => {
-    if (!dialogContainerRef.current) return;
-    const dialogContainer = dialogContainerRef.current;
+    if (!containerRef.current) return;
+    const dialogContainer = containerRef.current;
     _setActive(true);
 
     setTimeout(() => {
@@ -40,8 +45,8 @@ export default function Dialog({
   }, [activateTransitionClasses, inactivateTransitionClasses]);
 
   const inactivateDialog = useCallback(() => {
-    if (!dialogContainerRef.current) return;
-    const dialogContainer = dialogContainerRef.current;
+    if (!containerRef.current) return;
+    const dialogContainer = containerRef.current;
 
     dialogContainer.classList.remove(...activateTransitionClasses);
     dialogContainer.classList.add(...inactivateTransitionClasses);
@@ -55,16 +60,60 @@ export default function Dialog({
     }
   }, [activateDialog, active, inactivateDialog]);
 
+  const adjustPosition = useCallback(() => {
+    if (!active || !containerRef.current || !position) return position;
+
+    const container = containerRef.current;
+    const containerRect = container.getBoundingClientRect();
+    const containerWidth = containerRect.width;
+    const containerHeight = containerRect.height;
+    const contentPositionLeft = position.left;
+    const contentPositionTop = position.top;
+    const contentPositionRight = contentPositionLeft + containerWidth;
+    const contentPositionBottom = contentPositionTop + containerHeight;
+    const documentBodyRect = document.body.getBoundingClientRect();
+    const rightBoundary = documentBodyRect.right;
+    const bottomBoundary = documentBodyRect.bottom;
+
+    const adjustedPosition: Position = position;
+    if (contentPositionLeft < 0) adjustedPosition.left = 0;
+    if (contentPositionTop < 0) adjustedPosition.top = 0;
+    if (contentPositionRight > rightBoundary)
+      adjustedPosition.left = rightBoundary - containerWidth;
+    if (contentPositionBottom > bottomBoundary)
+      adjustedPosition.top = bottomBoundary - containerHeight;
+
+    return adjustedPosition;
+  }, [active, position]);
+
+  const computeWrapperPosition = useCallback((): CSSProperties => {
+    const adjustedPosition = adjustPosition();
+    if (!containerRef.current || !adjustedPosition) {
+      return {
+        position: "fixed",
+        left: "50%",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
+      };
+    }
+
+    return {
+      position: "fixed",
+      left: adjustedPosition.left,
+      top: adjustedPosition.top,
+    };
+  }, [adjustPosition]);
+
   if ((!active && !_active) || !dialogPortal) return <></>;
 
   return createPortal(
     <>
       {enableOverlay && (
-        <Overlay active={active} onClose={onClose} {...overlayProps} />
+        <Overlay active={active} handleClick={handleClick} {...overlayProps} />
       )}
-      <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[3]">
+      <div className="fixed z-[3]" style={computeWrapperPosition()}>
         <div
-          ref={dialogContainerRef}
+          ref={containerRef}
           className={`transition-all ${transitionDuration} ${inactivateTransitionClasses.join(
             " ",
           )}`}
