@@ -17,9 +17,9 @@ export interface ContextMenuProps {
 export default function ContextMenu({
   active = false,
   position,
-  activateTransitionClasses = ["scale-1"],
-  inactivateTransitionClasses = ["scale-0"],
-  transitionDuration = "duration-500",
+  activateTransitionClasses = ["scale-1", "origin-top-left"],
+  inactivateTransitionClasses = ["scale-0", "origin-top-left"],
+  transitionDuration = "duration-150",
   enableOverlay = false,
   dialogProps,
   overlayProps,
@@ -49,6 +49,8 @@ export default function ContextMenu({
       overlayProps={overlayProps}
       portalIdentifier={portalIdentifier}
       position={position}
+      activateTransitionClasses={[]}
+      inactivateTransitionClasses={[]}
       {...dialogProps}
     >
       <section
