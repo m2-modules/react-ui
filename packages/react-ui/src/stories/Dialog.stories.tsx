@@ -30,7 +30,7 @@ const Template: ComponentStory<typeof Dialog> = (args: DialogProps) => {
       <Dialog
         {...args}
         active={active}
-        onClose={() => {
+        handleClick={() => {
           setActive(false);
         }}
       >
