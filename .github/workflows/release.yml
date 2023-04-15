@@ -34,6 +34,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
+          commit: ${{ inputs.commit }}
           publish: pnpm publish-packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
