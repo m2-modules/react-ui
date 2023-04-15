@@ -1,12 +1,10 @@
 name: Release
 
 on:
-  workflow_dispatch:
-    inputs:
-      commit:
-        description: "Type commit message here based on conventional commit."
-        required: true
-        type: string
+  push:
+    branches:
+      - main
+
   
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -34,7 +32,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: ${{ inputs.commit }}
+          commit: 'chore(release): release react-ui'
           publish: pnpm publish-packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
