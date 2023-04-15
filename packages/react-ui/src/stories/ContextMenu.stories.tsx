@@ -1,8 +1,8 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { MouseEvent, useState } from "react";
 import ContextMenu, { ContextMenuProps } from "../ContextMenu";
 
-const componentMeta: ComponentMeta<typeof ContextMenu> = {
+const componentMeta: Meta<typeof ContextMenu> = {
   title: "Context menu",
   component: ContextMenu,
   argTypes: {
@@ -12,7 +12,7 @@ const componentMeta: ComponentMeta<typeof ContextMenu> = {
 
 export default componentMeta;
 
-const Template: ComponentStory<typeof ContextMenu> = (args) => {
+const Template: StoryFn<typeof ContextMenu> = (args) => {
   const [active, setActive] = useState(false);
   const [position, setPosition] = useState<ContextMenuProps["position"]>({
     left: 0,

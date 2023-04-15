@@ -1,8 +1,8 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
 import Overlay, { OverlayProps } from "../Overlay";
 
-const componentMeta: ComponentMeta<typeof Overlay> = {
+const componentMeta: Meta<typeof Overlay> = {
   title: "Overlay",
   component: Overlay,
   argTypes: {
@@ -16,7 +16,7 @@ const componentMeta: ComponentMeta<typeof Overlay> = {
 
 export default componentMeta;
 
-const Template: ComponentStory<typeof Overlay> = (args: OverlayProps) => {
+const Template: StoryFn<typeof Overlay> = (args: OverlayProps) => {
   const [active, setActive] = useState(false);
 
   return (

@@ -1,14 +1,14 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import Carousel from "../Carousel";
 
-const componentMeta: ComponentMeta<typeof Carousel> = {
+const componentMeta: Meta<typeof Carousel> = {
   title: "Carousel",
   component: Carousel,
 };
 
 export default componentMeta;
 
-const Template: ComponentStory<typeof Carousel> = (args) => (
+const Template: StoryFn<typeof Carousel> = (args) => (
   <div
     style={{
       display: "grid",
