@@ -2,11 +2,12 @@ name: Release
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-
-
+    inputs:
+      commit:
+        description: "Type commit message here based on conventional commit."
+        required: true
+        type: string
+  
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
