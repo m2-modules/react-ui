@@ -5,6 +5,7 @@ on:
     branches:
       - main
 
+  
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
@@ -21,12 +22,17 @@ jobs:
           node-version: 16.x
 
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.1.1
+          run_install: |
+            - args: [--frozen-lockfile]
 
       - name: Create Release Pull Request or Publish to github registry
         id: changesets
         uses: changesets/action@v1
         with:
+          commit: 'chore(release): release react-ui'
           publish: pnpm publish-packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
