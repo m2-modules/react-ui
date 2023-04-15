@@ -1,8 +1,8 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
 import Dialog, { DialogProps } from "../Dialog";
 
-const componentMeta: ComponentMeta<typeof Dialog> = {
+const componentMeta: Meta<typeof Dialog> = {
   title: "Dialog",
   component: Dialog,
   argTypes: {
@@ -12,7 +12,7 @@ const componentMeta: ComponentMeta<typeof Dialog> = {
 
 export default componentMeta;
 
-const Template: ComponentStory<typeof Dialog> = (args: DialogProps) => {
+const Template: StoryFn<typeof Dialog> = (args: DialogProps) => {
   const [active, setActive] = useState(false);
 
   return (
