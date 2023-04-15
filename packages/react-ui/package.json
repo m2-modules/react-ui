@@ -1,0 +1,49 @@
+{
+  "name": "@m2-modules/react-ui",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "module": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "author": {
+    "name": "Jay Lee",
+    "email": "jaylee.possible@gmail.com"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "vite build",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write './**/*.(ts|tsx|md)'",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "tailwind:generate": "tailwind -i ./assets/tailwind.css -o ./dist/assets/output.css",
+    "tailwind:watch": "tailwind -i ./assets/tailwind.css -o ./dist/assets/output.css -w",
+    "dev": "concurrently 'pnpm:test:watch' 'pnpm:tailwind:watch'"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@m2-modules/eslint-config-react-ui": "workspace:*",
+    "@m2-modules/jest-config-react-ui": "workspace:*",
+    "@m2-modules/tsconfig": "workspace:*",
+    "@m2-modules/vite-config-react-ui": "workspace:*",
+    "@types/jest": "^29.5.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-test-renderer": "^18.0.0",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^8.3.0",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.36.0",
+    "jest": "^29.5.0",
+    "react-test-renderer": "^18.2.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.2.7"
+  }
+}

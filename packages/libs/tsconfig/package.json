@@ -1,0 +1,14 @@
+{
+  "name": "@m2-modules/tsconfig",
+  "version": "0.0.0",
+  "private": true,
+  "author": {
+    "name": "Jay Lee",
+    "email": "jaylee.possible@gmail.com"
+  },
+  "license": "MIT",
+  "files": [
+    "base.json",
+    "react-ui.json"
+  ]
+}

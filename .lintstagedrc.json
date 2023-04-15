@@ -1,0 +1,4 @@
+{
+  "*.{ts,tsx}": ["pnpm lint-staged:format", "pnpm lint-staged:lint"],
+  "*.{json,md}": ["pnpm lint-staged:format"]
+}

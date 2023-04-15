@@ -3,22 +3,45 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "packages/*",
+    "packages/libs/*"
   ],
+  "packageManager": "pnpm@7.30.3",
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
+    "lint-staged:lint": "eslint",
+    "lint-staged:format": "prettier --write",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "turbo run format",
+    "prepare": "husky install",
+    "publish-packages": "turbo run build && changeset version && changeset publish",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "pnpm tailwind:generate && storybook build",
+    "dev": "concurrently 'pnpm:storybook' 'turbo run dev'"
   },
   "devDependencies": {
-    "eslint-config-custom": "*",
-    "prettier": "latest",
+    "@babel/core": "^7.21.3",
+    "@changesets/cli": "^2.26.0",
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@storybook/addon-essentials": "^7.0.4",
+    "@storybook/addon-interactions": "^7.0.4",
+    "@storybook/addon-links": "^7.0.4",
+    "@storybook/addon-mdx-gfm": "^7.0.4",
+    "@storybook/react": "^7.0.4",
+    "@storybook/react-vite": "^7.0.4",
+    "babel-loader": "^8.3.0",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.36.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "2.8.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.4",
     "turbo": "latest"
   },
   "engines": {
     "node": ">=14.0.0"
-  },
-  "packageManager": "yarn@3.5.0"
+  }
 }
