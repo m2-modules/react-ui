@@ -21,6 +21,14 @@ jobs:
         with:
           node-version: 16.x
 
+      - name: Creating .npmrc
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+          //registry.npmjs.org/:_authToken=$GITHUB_TOKEN
+          EOF
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUBLISHER_TOKEN }}
+
       - name: Install Dependencies
         uses: pnpm/action-setup@v2
         with:
@@ -35,6 +43,3 @@ jobs:
           title: "chore(release): release react-ui"
           commit: "chore(release): release react-ui"
           publish: pnpm publish-packages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
