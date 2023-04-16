@@ -31,6 +31,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
+          title: "chore(release): release react-ui"
           commit: "chore(release): release react-ui"
           publish: pnpm publish-packages
         env:
