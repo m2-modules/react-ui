@@ -1,5 +1,11 @@
 # @m2-modules/react-ui
 
+## 1.0.0
+
+### Major Changes
+
+- 2ce0eff: Release v1.0.0
+
 ## 2.0.0
 
 ### Major Changes
