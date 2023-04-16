@@ -27,6 +27,14 @@ jobs:
           version: 8.1.1
           run_install: |
             - args: [--frozen-lockfile]
+            
+      - name: Creating .npmrc
+        env:
+          AUTH_TOKEN: ${{ secrets.PUBLISHER_TOKEN }}
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+          //npm.pkg.github.com/:_authToken=$AUTH_TOKEN
+          EOF
 
       - name: Create Release Pull Request or Publish to github registry
         id: changesets
@@ -37,4 +45,3 @@ jobs:
           publish: pnpm publish-packages
         env:
           GITHUB_TOKEN: ${{ secrets.PUBLISHER_TOKEN }}
-          NPM_TOKEN: ${{ secrets.PUBLISHER_TOKEN }}
