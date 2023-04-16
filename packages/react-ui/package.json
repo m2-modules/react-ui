@@ -9,8 +9,13 @@
     "email": "jaylee.possible@gmail.com"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/m2-modules/react-ui.git",
+    "directory": "packages/react-ui"
+  },
   "publishConfig": {
-    "scope": "@m2-modules/react-ui",
+    "scope": "@m2-modules",
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
