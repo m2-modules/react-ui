@@ -10,6 +10,7 @@
   },
   "license": "MIT",
   "publishConfig": {
+    "scope": "@m2-modules",
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
