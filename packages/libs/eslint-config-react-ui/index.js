@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -9,4 +10,5 @@ module.exports = {
     "plugin:prettier/recommended",
     "prettier",
   ],
+  ignorePattern: ["*.js", "dist"],
 };
