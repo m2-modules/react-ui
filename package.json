@@ -14,7 +14,7 @@
     "lint": "turbo run lint",
     "format": "turbo run format",
     "prepare": "husky install",
-    "publish-packages": "turbo run build && changeset version && changeset publish",
+    "publish-packages": "turbo run lint format build && changeset version && changeset publish",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "pnpm tailwind:generate && storybook build",
     "dev": "concurrently 'pnpm:storybook' 'turbo run dev'"
