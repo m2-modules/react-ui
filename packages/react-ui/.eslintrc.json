@@ -1,6 +1,6 @@
 {
   "root": true,
-  "extends": ["react-ui"],
+  "extends": ["@m2-modules/eslint-config-react-ui"],
   "ignorePatterns": ["*.config.js", "dist"],
   "settings": {
     "react": {
