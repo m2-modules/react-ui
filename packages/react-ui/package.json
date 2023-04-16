@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "publishConfig": {
-    "scope": "@m2-modules",
+    "scope": "@m2-modules/react-ui",
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
