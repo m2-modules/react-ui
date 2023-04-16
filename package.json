@@ -25,6 +25,7 @@
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@m2-modules/eslint-config-react-ui": "workspace:*",
+    "@m2-modules/tsconfig": "workspace:^",
     "@storybook/addon-essentials": "^7.0.4",
     "@storybook/addon-interactions": "^7.0.4",
     "@storybook/addon-links": "^7.0.4",
