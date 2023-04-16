@@ -34,7 +34,6 @@ jobs:
         run: |
           cat << EOF > "$HOME/.npmrc"
           //npm.pkg.github.com/:_authToken=$AUTH_TOKEN
-          @m2-modules:registry=https://npm.pkg.github.com/
           EOF
 
       - name: Create Release Pull Request or Publish to github registry
