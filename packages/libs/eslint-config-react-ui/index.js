@@ -10,5 +10,4 @@ module.exports = {
     "plugin:prettier/recommended",
     "prettier",
   ],
-  ignorePattern: ["*.js", "dist"],
 };
