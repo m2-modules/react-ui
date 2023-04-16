@@ -20,7 +20,7 @@ importers:
         specifier: workspace:*
         version: link:packages/libs/eslint-config-react-ui
       '@m2-modules/tsconfig':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:packages/libs/tsconfig
       '@storybook/addon-essentials':
         specifier: ^7.0.4
