@@ -16,18 +16,6 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^17.4.4
         version: 17.4.4
-      '@m2-modules/eslint-config-react-ui':
-        specifier: workspace:*
-        version: link:packages/libs/eslint-config-react-ui
-      '@m2-modules/jest-config-react-ui':
-        specifier: workspace:*
-        version: link:packages/libs/jest-config-react-ui
-      '@m2-modules/tsconfig':
-        specifier: workspace:*
-        version: link:packages/libs/tsconfig
-      '@m2-modules/vite-config-react-ui':
-        specifier: workspace:*
-        version: link:packages/libs/vite-config-react-ui
       '@storybook/addon-essentials':
         specifier: ^7.0.4
         version: 7.0.4(react-dom@18.2.0)(react@18.2.0)
@@ -157,18 +145,6 @@ importers:
       '@babel/core':
         specifier: ^7.21.3
         version: 7.21.3
-      '@m2-modules/eslint-config-react-ui':
-        specifier: workspace:*
-        version: link:../libs/eslint-config-react-ui
-      '@m2-modules/jest-config-react-ui':
-        specifier: workspace:*
-        version: link:../libs/jest-config-react-ui
-      '@m2-modules/tsconfig':
-        specifier: workspace:*
-        version: link:../libs/tsconfig
-      '@m2-modules/vite-config-react-ui':
-        specifier: workspace:*
-        version: link:../libs/vite-config-react-ui
       '@types/jest':
         specifier: ^29.5.0
         version: 29.5.0
@@ -193,18 +169,30 @@ importers:
       eslint:
         specifier: ^8.36.0
         version: 8.36.0
+      eslint-config-react-ui:
+        specifier: workspace:*
+        version: link:../libs/eslint-config-react-ui
       jest:
         specifier: ^29.5.0
         version: 29.5.0(@types/node@18.15.10)(ts-node@10.9.1)
+      jest-config-react-ui:
+        specifier: workspace:*
+        version: link:../libs/jest-config-react-ui
       react-test-renderer:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      tsconfig:
+        specifier: workspace:*
+        version: link:../libs/tsconfig
       typescript:
         specifier: ^5.0.2
         version: 5.0.2
       vite:
         specifier: ^4.2.0
         version: 4.2.1(@types/node@18.15.10)
+      vite-config-react-ui:
+        specifier: workspace:*
+        version: link:../libs/vite-config-react-ui
 
 packages:
 
