@@ -6,5 +6,4 @@ module.exports = {
       version: "detect",
     },
   },
-  ignorePattern: ["*.js", "dist"],
 };
