@@ -5,9 +5,12 @@
       "cache": false
     },
     "build": {
+      "dependsOn": ["lint"],
       "outputs": ["dist/**"]
     },
     "format": {},
-    "lint": {}
+    "lint": {
+      "dependsOn": ["format"]
+    }
   }
 }

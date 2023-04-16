@@ -19,9 +19,15 @@ importers:
       '@m2-modules/eslint-config-react-ui':
         specifier: workspace:*
         version: link:packages/libs/eslint-config-react-ui
+      '@m2-modules/jest-config-react-ui':
+        specifier: workspace:*
+        version: link:packages/libs/jest-config-react-ui
       '@m2-modules/tsconfig':
         specifier: workspace:*
         version: link:packages/libs/tsconfig
+      '@m2-modules/vite-config-react-ui':
+        specifier: workspace:*
+        version: link:packages/libs/vite-config-react-ui
       '@storybook/addon-essentials':
         specifier: ^7.0.4
         version: 7.0.4(react-dom@18.2.0)(react@18.2.0)
