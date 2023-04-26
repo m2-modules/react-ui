@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { MouseEvent, useState } from "react";
 import ContextMenu, { ContextMenuProps } from "../ContextMenu";
 
-const componentMeta: Meta<typeof ContextMenu> = {
+const meta: Meta<typeof ContextMenu> = {
   title: "Context menu",
   component: ContextMenu,
   argTypes: {
@@ -10,9 +10,11 @@ const componentMeta: Meta<typeof ContextMenu> = {
   },
 };
 
-export default componentMeta;
+export default meta;
 
-const Template: StoryFn<typeof ContextMenu> = (args) => {
+type Story = StoryFn<typeof ContextMenu>;
+
+const Template: Story = (args) => {
   const [active, setActive] = useState(false);
   const [position, setPosition] = useState<ContextMenuProps["position"]>({
     left: 0,
@@ -61,5 +63,5 @@ const Template: StoryFn<typeof ContextMenu> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default: Story = Template.bind({});
 Default.args = {};

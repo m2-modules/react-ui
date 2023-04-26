@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
 import Dialog, { DialogProps } from "../Dialog";
 
-const componentMeta: Meta<typeof Dialog> = {
+const meta: Meta<typeof Dialog> = {
   title: "Dialog",
   component: Dialog,
   argTypes: {
@@ -10,9 +10,11 @@ const componentMeta: Meta<typeof Dialog> = {
   },
 };
 
-export default componentMeta;
+export default meta;
 
-const Template: StoryFn<typeof Dialog> = (args: DialogProps) => {
+type Story = StoryFn<typeof Dialog>;
+
+const Template: Story = (args: DialogProps) => {
   const [active, setActive] = useState(false);
 
   return (
@@ -55,13 +57,13 @@ const Template: StoryFn<typeof Dialog> = (args: DialogProps) => {
   );
 };
 
-export const Opacity = Template.bind({});
-export const Scale = Template.bind({});
+export const Opacity: Story = Template.bind({});
+export const Scale: Story = Template.bind({});
 Scale.args = {
   activateTransitionClasses: ["scale-1"],
   inactivateTransitionClasses: ["scale-0"],
 };
-export const TranslateY = Template.bind({});
+export const TranslateY: Story = Template.bind({});
 TranslateY.args = {
   activateTransitionClasses: ["opacity-1", "translate-y-0"],
   inactivateTransitionClasses: ["opacity-0", "translate-y-10"],
