@@ -1,6 +1,6 @@
+import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Overlay, { type OverlayProps } from "../Overlay";
-import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import usePortal from "../hooks/usePortal";
 
 export type Position = { left: number; top: number };
@@ -17,7 +17,7 @@ export interface DialogProps {
   handleClick?: () => void;
 }
 
-export default function Dialog({
+export function Dialog({
   active = false,
   enableOverlay = true,
   activateTransitionClasses = ["opacity-1"],

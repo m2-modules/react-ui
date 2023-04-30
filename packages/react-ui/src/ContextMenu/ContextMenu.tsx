@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Dialog, { DialogProps, Position } from "../Dialog";
+import { Dialog, DialogProps, Position } from "../Dialog";
 
 export interface ContextMenuProps {
   active?: boolean;
@@ -14,7 +14,7 @@ export interface ContextMenuProps {
   children: React.ReactNode;
 }
 
-export default function ContextMenu({
+export function ContextMenu({
   active = false,
   position,
   activateTransitionClasses = ["scale-1", "origin-top-left"],
