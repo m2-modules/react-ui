@@ -6,3 +6,6 @@ test
 babel.config.*
 tsconfig.*
 vite.config.*
+.turbo
+tailwind.config.js
+assets/tailwind.css
