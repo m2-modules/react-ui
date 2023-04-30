@@ -1,5 +1,11 @@
 # @m2-modules/react-ui
 
+## 2.0.0
+
+### Major Changes
+
+- cc79349: change exporting path and publishing carousel component
+
 ## 1.0.0
 
 ### Major Changes
