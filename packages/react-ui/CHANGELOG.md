@@ -1,5 +1,11 @@
 # @m2-modules/react-ui
 
+## 1.1.1
+
+### Patch Changes
+
+- dbe31cb: fix: export carousel and update npmignore
+
 ## 1.1.0
 
 ### Minor Changes
