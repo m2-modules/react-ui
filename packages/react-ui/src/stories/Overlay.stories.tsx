@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
 import Overlay, { OverlayProps } from "../Overlay";
 
-const componentMeta: Meta<typeof Overlay> = {
+const meta: Meta<typeof Overlay> = {
   title: "Overlay",
   component: Overlay,
   argTypes: {
@@ -14,9 +14,11 @@ const componentMeta: Meta<typeof Overlay> = {
   },
 };
 
-export default componentMeta;
+export default meta;
 
-const Template: StoryFn<typeof Overlay> = (args: OverlayProps) => {
+type Story = StoryFn<typeof Overlay>;
+
+const Template: Story = (args: OverlayProps) => {
   const [active, setActive] = useState(false);
 
   return (
@@ -41,8 +43,8 @@ const Template: StoryFn<typeof Overlay> = (args: OverlayProps) => {
   );
 };
 
-export const Opacity = Template.bind({});
-export const Scale = Template.bind({});
+export const Opacity: Story = Template.bind({});
+export const Scale: Story = Template.bind({});
 Scale.args = {
   activateTransitionClasses: ["opacity-1", "scale-1"],
   inactivateTransitionClasses: ["opacity-0", "scale-0"],

@@ -21,7 +21,7 @@ export interface CarouselProps {
 
 const DEFAULT_INTERVAL = 3 * 1000;
 
-export default function Carousel({
+export function Carousel({
   items,
   autoScrollInterval = DEFAULT_INTERVAL,
   infiniteRolling = false,

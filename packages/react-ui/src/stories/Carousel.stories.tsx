@@ -1,14 +1,16 @@
 import { Meta, StoryFn } from "@storybook/react";
 import Carousel from "../Carousel";
 
-const componentMeta: Meta<typeof Carousel> = {
+const meta: Meta<typeof Carousel> = {
   title: "Carousel",
   component: Carousel,
 };
 
-export default componentMeta;
+export default meta;
 
-const Template: StoryFn<typeof Carousel> = (args) => (
+type Story = StoryFn<typeof Carousel>;
+
+const Template: Story = (args) => (
   <div
     style={{
       display: "grid",
@@ -19,7 +21,7 @@ const Template: StoryFn<typeof Carousel> = (args) => (
   </div>
 );
 
-export const HorizontalScrollCarousel = Template.bind({});
+export const HorizontalScrollCarousel: Story = Template.bind({});
 HorizontalScrollCarousel.args = {
   width: 300,
   height: 450,
@@ -33,7 +35,7 @@ HorizontalScrollCarousel.args = {
   )),
 };
 
-export const VerticalScrollCarousel = Template.bind({});
+export const VerticalScrollCarousel: Story = Template.bind({});
 VerticalScrollCarousel.args = {
   width: 300,
   height: 450,
@@ -47,7 +49,7 @@ VerticalScrollCarousel.args = {
   )),
 };
 
-export const CustomizedIndicatorCarousel = Template.bind({});
+export const CustomizedIndicatorCarousel: Story = Template.bind({});
 CustomizedIndicatorCarousel.args = {
   width: 300,
   height: 450,
@@ -68,7 +70,7 @@ CustomizedIndicatorCarousel.args = {
   ),
 };
 
-export const InfiniteCarousel = Template.bind({});
+export const InfiniteCarousel: Story = Template.bind({});
 InfiniteCarousel.args = {
   width: 300,
   height: 450,
@@ -83,7 +85,7 @@ InfiniteCarousel.args = {
   )),
 };
 
-export const RoundTripCarousel = Template.bind({});
+export const RoundTripCarousel: Story = Template.bind({});
 RoundTripCarousel.args = {
   width: 300,
   height: 450,
