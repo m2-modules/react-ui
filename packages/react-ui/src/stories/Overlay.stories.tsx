@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
-import Overlay, { OverlayProps } from "../Overlay";
+import { Overlay, OverlayProps } from "../Overlay";
 
 const meta: Meta<typeof Overlay> = {
   title: "Overlay",
@@ -22,9 +22,15 @@ const Template: Story = (args: OverlayProps) => {
   const [active, setActive] = useState(false);
 
   return (
-    <>
+    <div
+      style={{
+        display: "grid",
+        height: "100vh",
+        placeItems: "center",
+      }}
+    >
       <button
-        className="hover:bg-red-400 hover:text-white p-3"
+        className="bg-green-500 rounded shadow text-white px-3 py-1"
         onClick={() => {
           setActive(!active);
         }}
@@ -39,7 +45,7 @@ const Template: Story = (args: OverlayProps) => {
           setActive(false);
         }}
       />
-    </>
+    </div>
   );
 };
 

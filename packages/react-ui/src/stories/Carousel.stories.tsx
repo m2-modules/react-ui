@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react";
-import Carousel from "../Carousel";
+import { Carousel } from "../Carousel";
 
 const meta: Meta<typeof Carousel> = {
   title: "Carousel",
@@ -15,6 +15,8 @@ const Template: Story = (args) => (
     style={{
       display: "grid",
       placeItems: "center",
+      width: "100vw",
+      height: "100vh",
     }}
   >
     <Carousel {...args} />
