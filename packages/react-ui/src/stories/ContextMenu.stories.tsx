@@ -1,6 +1,6 @@
-import { Meta, StoryFn } from "@storybook/react";
-import { MouseEvent, useState } from "react";
-import ContextMenu, { ContextMenuProps } from "../ContextMenu";
+import type { Meta, StoryFn } from "@storybook/react";
+import { type MouseEvent, useState } from "react";
+import { ContextMenu, type ContextMenuProps } from "../ContextMenu";
 
 const meta: Meta<typeof ContextMenu> = {
   title: "Context menu",

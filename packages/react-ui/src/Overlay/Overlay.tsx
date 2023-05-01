@@ -12,7 +12,7 @@ export interface OverlayProps {
   handleClick?: () => void;
 }
 
-export default function Overlay({
+export function Overlay({
   active = false,
   activateTransitionClasses = ["opacity-1"],
   inactivateTransitionClasses = ["opacity-0"],

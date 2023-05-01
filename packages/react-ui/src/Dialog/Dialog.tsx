@@ -1,6 +1,6 @@
 import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import Overlay, { type OverlayProps } from "../Overlay";
+import { Overlay, type OverlayProps } from "../Overlay";
 import usePortal from "../hooks/usePortal";
 
 export type Position = { left: number; top: number };

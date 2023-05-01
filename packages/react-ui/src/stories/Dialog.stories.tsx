@@ -1,6 +1,6 @@
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
-import Dialog, { DialogProps } from "../Dialog";
+import { Dialog, type DialogProps } from "../Dialog";
 
 const meta: Meta<typeof Dialog> = {
   title: "Dialog",
@@ -18,9 +18,16 @@ const Template: Story = (args: DialogProps) => {
   const [active, setActive] = useState(false);
 
   return (
-    <>
+    <div
+      style={{
+        display: "grid",
+        placeItems: "center",
+        height: "100vh",
+      }}
+    >
       {!active && (
         <button
+          className="bg-green-500 rounded shadow text-white px-3 py-1"
           onClick={() => {
             setActive(true);
           }}
@@ -53,7 +60,7 @@ const Template: Story = (args: DialogProps) => {
           </button>
         </div>
       </Dialog>
-    </>
+    </div>
   );
 };
 
