@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Dialog, DialogProps, Position } from "../Dialog";
+import { Dialog, type DialogProps, type Position } from "../Dialog";
 
 export interface ContextMenuProps {
   active?: boolean;

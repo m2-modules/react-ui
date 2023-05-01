@@ -1,6 +1,6 @@
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
-import { Dialog, DialogProps } from "../Dialog";
+import { Dialog, type DialogProps } from "../Dialog";
 
 const meta: Meta<typeof Dialog> = {
   title: "Dialog",

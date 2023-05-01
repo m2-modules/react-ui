@@ -1,6 +1,6 @@
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
-import { Overlay, OverlayProps } from "../Overlay";
+import { Overlay, type OverlayProps } from "../Overlay";
 
 const meta: Meta<typeof Overlay> = {
   title: "Overlay",
